@@ -114,7 +114,9 @@
       }
     },
     computed: {
-      ...mapState(['user'])
+      ...mapState({
+        user: state=>state.user.user
+      })
     },
     components: {
       NavHeader

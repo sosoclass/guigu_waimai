@@ -8,11 +8,15 @@ import router from './router'
 import store from './store'
 import NavHeader from './compoents/NavHeader/NavHeader.vue'
 import stars from './compoents/star/star.vue'
+import CartControl from './compoents/CartControl/CartControl.vue'
+
+import './mock/mockServer'
 
 
 Vue.component('NavHeader',NavHeader);
 Vue.component('stars',stars);
 Vue.component(Button.name,Button);
+Vue.component('CartControl',CartControl);
 
 new Vue({
   el: '#app',

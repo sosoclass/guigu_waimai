@@ -63,9 +63,11 @@
         baseImgsUrl:'https://fuss10.elemecdn.com'
       }
     },
-    computed:{
-      ...mapState(['shops'])
-    }
+   computed:{
+     ...mapState({
+       shops:state => state.msite.shops,
+     }),
+   }
   }
 </script>
 

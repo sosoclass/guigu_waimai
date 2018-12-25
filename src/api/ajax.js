@@ -5,7 +5,7 @@ import axios from 'axios'
 
 export default function ajax(url,data={},method = 'GET') {
   return new Promise(function (resolve,reject) {
-    let promise
+    let promise;
     if(method ==='GET'){
       promise = axios.get(url,{params:data})
     }else{

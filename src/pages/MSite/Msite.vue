@@ -2,11 +2,12 @@
   <section class="msite">
     <!--首页头部-->
     <NavHeader :title="address.name||'正在定位中...'">
-      <span class="header_search" slot="left">
+      <span class="header_search" slot="left" @click="$router.replace('/search')">
         <i class="iconfont icon-sousuo"></i>
       </span>
-      <span class="header_login" slot="right" @click="$router.push('/login')">
-        <span class="header_login_text">登录|注册</span>
+      <span class="header_login" slot="right" >
+        <span class="header_login_text" v-if="!user._id" @click="$router.push('/login')">登录|注册</span>
+        <i class="iconfont icon-person" v-else @click="$router.push('/userinfo')"></i>
       </span>
     </NavHeader>
     <!--首页导航-->
@@ -53,7 +54,11 @@
       this.$store.dispatch('getCategorys')
     },
     computed:{
-      ...mapState(['address','categorys']),
+      ...mapState({
+        address:state => state.msite.address,
+        categorys:state => state.msite.categorys,
+        user:state => state.user.user
+      }),
       categorysArr(){
         const {categorys} = this;
         const bigArr = [];
